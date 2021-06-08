@@ -24,8 +24,8 @@ var (
 func Handler(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
-	noun := strings.ToTitle(nouns[rand.Intn(len(nouns))])
-	name := strings.ToTitle(names[rand.Intn(len(names))])
+	noun := strings.Title(nouns[rand.Intn(len(nouns))])
+	name := strings.Title(names[rand.Intn(len(names))])
 	number := strconv.Itoa(rand.Intn(99))
 
 	resp := NameResponse{
