@@ -26,9 +26,4 @@
     button:hover {
         background-color: rgb(192, 122, 31);
     }
-
-    button.rotate {
-        transition: all 0.5s;
-        transform: rotate(360deg);
-    }
 </style>
