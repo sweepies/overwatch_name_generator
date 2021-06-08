@@ -1,20 +1,15 @@
 <script>
     export let action;
 
-    let spinning;
-
-    let spin = async () => {
-        spinning = true;
-    };
-
-    let unspin = async () => {
-        spinning = false
-    };
+    import { Motion } from 'svelte-motion';
+    let i = 0;
 </script>
 
-<button on:click={action} on:click={spin} on:transitionend={unspin} class:rotate={spinning}>
-    <i class="fas fa-redo"></i>
-</button>
+<Motion animate={{ rotate: i }} transition={{ duration: .5 }} let:motion>
+    <button aria-label="refresh" on:click={action} on:click={ () => i+=360 } use:motion>
+        <i class="fas fa-redo"></i>
+    </button>
+</Motion>
 
 <style>
     button {
@@ -30,10 +25,5 @@
 
     button:hover {
         background-color: rgb(192, 122, 31);
-    }
-
-    button.rotate {
-        transition: all 0.5s;
-        transform: rotate(360deg);
     }
 </style>
