@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import Button from "./Button.svelte";
+	import Button from "../components/Button.svelte";
 
 	let data;
 
@@ -14,24 +14,35 @@
 </script>
 
 <div class="container">
-	{#if data}
-		<div class="item" id="name">
-			{data.noun}<span id="name-name">{data.name}</span>{data.number}
-		</div>
-	{:else}
-		<div class="item" id="name">...</div>
-	{/if}
+	<div class="item" id="name">
+		{#if data}
+			{data.noun}<span>{data.name}</span>{data.number}
+		{:else}
+			...
+		{/if}
+	</div>
 	<Button action={update} />
 </div>
 
-<style>
+<style lang="scss">
+	:global {
+		body {
+			background-color: rgb(53, 53, 53);
+		}
+	}
+
+	@font-face {
+		font-family: bignoodle;
+		src: url('/big_noodle_titling_oblique.ttf');
+	}
+
 	#name {
 		font-family: bignoodle, sans-serif;
 		font-size: max(7vw, 5.25rem);
 		color: rgb(250, 156, 30);
 	}
 
-	#name-name {
+	span {
 		color: rgb(180, 180, 180);
 	}
 
