@@ -34,6 +34,7 @@
 	@font-face {
 		font-family: bignoodle;
 		src: url('/big_noodle_titling_oblique.ttf');
+		font-display: swap;
 	}
 
 	#name {
